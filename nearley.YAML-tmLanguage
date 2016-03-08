@@ -1,0 +1,19 @@
+# [PackageDev] target_format: plist, ext: tmLanguage
+---
+name: Nearley
+scopeName: source.nearley
+fileTypes: ['ne']
+uuid: 0a6368a4-5ed4-4ca6-8265-6ea81857814e
+
+patterns:
+- name: entity.name.function.nearley
+  match: ^([\S]*)(?=\s*->)
+- name: keyword.control.nearley
+  match: \@builtin
+- name: string
+  begin: \@?\{\%
+  end: \%\}
+- name: string.quoted.double.nearley
+  match: ([\"'])(?:\\\1|.)*?\1
+- name: comment.line.number-sign.nearley
+  match: \#.*$
