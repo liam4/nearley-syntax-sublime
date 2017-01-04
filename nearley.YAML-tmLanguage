@@ -6,14 +6,23 @@ fileTypes: ['ne']
 uuid: 0a6368a4-5ed4-4ca6-8265-6ea81857814e
 
 patterns:
-- name: entity.name.function.nearley
-  match: ^([\S]*)(?=\s*->)
+- match: ^([\S]*)\s*(->)
+  captures:
+    '1': {name: entity.name.function.nearley}
+    '2': {name: keyword.operator.nearley}
 - name: keyword.control.nearley
-  match: \@builtin
-- name: string
-  begin: \@?\{\%
+  match: \@(builtin|include)
+- begin: \@?\{\%
+  beginCaptures:
+    '0': {name: keyword.operator.nearley}
   end: \%\}
+  endCaptures:
+    '0': {name: keyword.operator.nearley}
+  patterns:
+    - include: source.js
 - name: string.quoted.double.nearley
   match: ([\"'])(?:\\\1|.)*?\1
 - name: comment.line.number-sign.nearley
   match: \#.*$
+- name: keyword.operator.nearley
+  match: \||:(\*|\+|\?)
