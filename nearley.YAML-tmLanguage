@@ -21,7 +21,7 @@ patterns:
   patterns:
     - include: source.js
 - name: string.quoted.double.nearley
-  match: ([\"'])(?:\\\1|.)*?\1
+  match: \"(?:\\\"|.)*?\"
 - name: comment.line.number-sign.nearley
   match: \#.*$
 - name: keyword.operator.nearley

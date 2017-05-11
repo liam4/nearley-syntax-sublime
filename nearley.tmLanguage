@@ -64,7 +64,7 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>([\"'])(?:\\\1|.)*?\1</string>
+			<string>\"(?:\\\"|.)*?\"</string>
 			<key>name</key>
 			<string>string.quoted.double.nearley</string>
 		</dict>
